@@ -12,7 +12,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
@@ -32,7 +32,10 @@ const LandingSection = () => {
     validationSchema: Yup.object({
       firstName: Yup.string().label("Name").required(),
       email: Yup.string().label("Email").email().required(),
-      comment: Yup.string().min(25, "Must be at least 25 characters").label("Comment").required(),
+      comment: Yup.string()
+        .min(25, "Must be at least 25 characters")
+        .label("Comment")
+        .required(),
     }),
   });
 
@@ -41,27 +44,50 @@ const LandingSection = () => {
       console.log("Response received:", response);
       onOpen(response.type, response.message);
 
-      if (response.type === "success")
-        formik.resetForm();
+      if (response.type === "success") formik.resetForm();
     }
   }, [response]);
 
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="blue.800"
+      bg="#0f172a"
       color="gray.200"
-      py={16}
+      // py={16}
       spacing={8}
+      w="100%"
+      backgroundImage={`
+      repeating-linear-gradient(
+        45deg,
+        rgba(192, 189, 0, 0.10) 0px,
+        rgba(192, 189, 0, 0.10) 1px,
+        transparent 1px,
+        transparent 20px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(192, 189, 0, 0.10) 0px,
+        rgba(192, 189, 0, 0.10) 1px,
+        transparent 1px,
+        transparent 20px
+      )
+    `}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
+      <VStack minW="480px" w="100%" maxW="1024px" p={32}>
         <Heading as="h1" id="contactme-section">
           Contact me
         </Heading>
-        <Box p={6} rounded="md" w="100%">
+        <Box
+          p={6}
+          rounded="md"
+          w="100%"
+          minW={{ base: "280px", sm: "340px", md: "400px" }}
+        >
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
-              <FormControl isInvalid={formik.errors.firstName && formik.touched.firstName}>
+              <FormControl
+                isInvalid={formik.errors.firstName && formik.touched.firstName}
+              >
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
@@ -72,7 +98,9 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={formik.errors.email && formik.touched.email}>
+              <FormControl
+                isInvalid={formik.errors.email && formik.touched.email}
+              >
                 <FormLabel htmlFor="email">Email Address</FormLabel>
                 <Input
                   id="email"
@@ -93,14 +121,29 @@ const LandingSection = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
-                  <option value="hireMe" style={{ backgroundColor: "gray.100", color: "#2A4365" }}>Freelance project proposal</option>
-                  <option value="openSource" style={{ backgroundColor: "gray.100", color: "#2A4365" }}>
+                  <option
+                    value="hireMe"
+                    style={{ backgroundColor: "gray.100", color: "#2A4365" }}
+                  >
+                    Freelance project proposal
+                  </option>
+                  <option
+                    value="openSource"
+                    style={{ backgroundColor: "gray.100", color: "#2A4365" }}
+                  >
                     Open source consultancy session
                   </option>
-                  <option value="other" style={{ backgroundColor: "gray.100", color: "#2A4365" }}>Other</option>
+                  <option
+                    value="other"
+                    style={{ backgroundColor: "gray.100", color: "#2A4365" }}
+                  >
+                    Other
+                  </option>
                 </Select>
               </FormControl>
-              <FormControl isInvalid={formik.errors.comment && formik.touched.comment}>
+              <FormControl
+                isInvalid={formik.errors.comment && formik.touched.comment}
+              >
                 <FormLabel htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
@@ -112,7 +155,12 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="blue" width="full" isLoading={isLoading}>
+              <Button
+                type="submit"
+                colorScheme="blue"
+                width="full"
+                isLoading={isLoading}
+              >
                 Submit
               </Button>
             </VStack>

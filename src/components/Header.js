@@ -13,7 +13,7 @@ const socials = [
   {
     id: 1,
     icon: faEnvelope,
-    url: "mailto: adri@gmail.com",
+    url: "mailto: adrigargonzalez@gmail.com",
   },
   {
     id: 2,
@@ -23,12 +23,12 @@ const socials = [
   {
     id: 3,
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/adri/",
+    url: "https://www.linkedin.com/in/adrian-garc%C3%ADa-gonz%C3%A1lez-269239261/",
   },
   {
     id: 4,
     icon: faStackOverflow,
-    url: "https://stackoverflow.com/users//adri",
+    url: "https://stackoverflow.com/users/4163365/rain",
   },
 ];
 
@@ -42,10 +42,8 @@ const Header = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling down and past 100px → hide header
         setShow(false);
       } else {
-        // Scrolling up → show header
         setShow(true);
       }
 
@@ -86,10 +84,12 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
       zIndex={999}
+      borderBottom="1px solid"
+      borderBottomColor="gray.600"
+      bg="black"
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
+      <Box color="white" margin="0 auto">
         <HStack
           px={16}
           py={4}
@@ -100,13 +100,13 @@ const Header = () => {
             <HStack spacing={4}>
               {socials.map((item) => (
                 <a key={`icon-link-${item.id}`} href={item.url} target="_blank">
-                  <FontAwesomeIcon icon={item.icon} size="xl" />
+                  <FontAwesomeIcon icon={item.icon} size="xl" color="gainsboro"/>
                 </a>
               ))} 
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>
+            <HStack spacing={6}>
               {/* Add links to Projects and Contact me section */}
               <a href="" onClick={handleClick("projects")}>Projects</a>
               <a href="" onClick={handleClick("contactme")}>Contact me</a>
