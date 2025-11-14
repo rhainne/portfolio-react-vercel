@@ -41,7 +41,6 @@ const ProjectsSection = () => {
       color="blue.800"
       isDarkBackground
       p={8}
-      alignItems="flex-start"
       spacing={8}
     >
       <Heading as="h1" id="projects-section">
@@ -49,8 +48,12 @@ const ProjectsSection = () => {
       </Heading>
       <Box
         display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
+        gridTemplateColumns={{
+          base: "1fr", // < 550px → 1 column
+          md: "repeat(2, minmax(0, 1fr))", // ≥ 550px → 2 flexible equal columns
+        }}
         gridGap={8}
+        maxW="1280px"
       >
         {projects.map((project) => (
           <Card
