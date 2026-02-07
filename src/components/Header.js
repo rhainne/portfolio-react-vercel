@@ -23,7 +23,7 @@ const socials = [
   {
     id: 3,
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/adrian-garc%C3%ADa-gonz%C3%A1lez-269239261/",
+    url: "https://www.linkedin.com/in/adriangarciagonzalez1337/",
   },
   {
     id: 4,
@@ -100,9 +100,9 @@ const Header = () => {
             <HStack spacing={4}>
               {socials.map((item) => (
                 <a key={`icon-link-${item.id}`} href={item.url} target="_blank">
-                  <FontAwesomeIcon icon={item.icon} size="xl" color="gainsboro"/>
+                  <FontAwesomeIcon icon={item.icon} size="xl" color="gainsboro" />
                 </a>
-              ))} 
+              ))}
             </HStack>
           </nav>
           <nav>
