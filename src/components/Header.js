@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -36,6 +37,10 @@ const socials = [
 const Header = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const location = useLocation();
+  const prevLocationRef = useRef(location);
+  const isHome = location.pathname === '/';
 
   const controlHeader = () => {
     if (typeof window !== "undefined") {
@@ -91,27 +96,37 @@ const Header = () => {
     >
       <Box color="white" margin="0 auto">
         <HStack
-          px={16}
+          pr={16}
+          pl={[4, 8, 8]}
           py={4}
           justifyContent="space-between"
           alignItems="center"
         >
           <nav>
-            <HStack spacing={4}>
+            <HStack spacing={[3, 4, 4]}>
               {socials.map((item) => (
                 <a key={`icon-link-${item.id}`} href={item.url} target="_blank">
-                  <FontAwesomeIcon icon={item.icon} size="xl" color="gainsboro" />
+                  <FontAwesomeIcon icon={item.icon} size={["lg", "xl", "xl"]} color="gainsboro" />
                 </a>
               ))}
             </HStack>
           </nav>
-          <nav>
-            <HStack spacing={6}>
-              {/* Add links to Projects and Contact me section */}
-              <a href="" onClick={handleClick("projects")}>Projects</a>
-              <a href="" onClick={handleClick("contactme")}>Contact me</a>
-            </HStack>
-          </nav>
+          {isHome && (
+            <nav>
+              <HStack spacing={[2, 5, 5]} fontSize={[12, 16, 16]}>
+                <a href="" onClick={handleClick("projects")}>Projects</a>
+                <a href="" onClick={handleClick("contactme")}>Contact me</a>
+                <a href="" onClick={handleClick("products")}>Products</a>
+              </HStack>
+            </nav>
+          )}
+          {!isHome && (
+            <nav>
+              <HStack spacing={[2, 5, 5]} fontSize={[12, 16, 16]}>
+                <Link to="/">Home</Link>
+              </HStack>
+            </nav>
+          )}
         </HStack>
       </Box>
     </Box>
