@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, VStack } from "@chakra-ui/react";
+import { Heading, Text, Link, VStack } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
 import { useAuth } from "../auth/AuthContext";
 import { LoginPage } from "./LoginPage";
@@ -32,7 +32,30 @@ const ProductsHome = () => {
       )
     `}
     >
-      <VStack minW="480px" w="100%" maxW="1024px" p={32}>
+      <VStack minW="480px" w="100%" maxW="1024px" p={32} spacing={8}>
+        {!isAuthenticated && (
+          <Text textAlign="center" fontSize="sm">
+            Login to access the products CRUD. The underlying Rest API is made with{' '}
+            <Link
+              href="https://nestjs.com/"
+              isExternal
+              color="red.400"
+              fontWeight="semibold"
+            >
+              NestJS
+            </Link>{' '}
+            and hosted on {' '}
+            <Link
+              href="https://render.com/"
+              isExternal
+              color="green.400"
+              fontWeight="semibold"
+            >
+              Render.
+            </Link>{' '}
+            The first call to the API will wake it up if its asleep, so it might take a few seconds to log in.
+          </Text>
+        )}
         <Heading as="h2" size={"lg"} mb={8} id="product-crud-section">
           {!isAuthenticated
             ? "Log in to access the products CRUD"
@@ -45,7 +68,7 @@ const ProductsHome = () => {
             : <ProductsCRUD />
         }
       </VStack>
-    </FullScreenSection>
+    </FullScreenSection >
   );
 };
 

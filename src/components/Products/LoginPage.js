@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 
+import FullScreenSection from "../FullScreenSection";
 import useSubmitLogin from "../../hooks/useSubmitLogin";
 import { useApi } from "../../utils/useApi";
 
@@ -41,45 +42,51 @@ export function LoginPage() {
   }, [response]);
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <VStack spacing={4}>
-        <FormControl
-          isInvalid={formik.errors.username && formik.touched.username}
-        >
-          <FormLabel htmlFor="username">Username</FormLabel>
-          <Input
-            id="username"
-            name="username"
-            type="email"
-            value={formik.values.username}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
-        </FormControl>
-        <FormControl
-          isInvalid={formik.errors.password && formik.touched.password}
-        >
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <Input
-            id="password"
-            name="password"
-            type="password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
-        </FormControl>
-        <Button
-          type="submit"
-          colorScheme="blue"
-          width="full"
-          isLoading={isLoading}
-        >
-          Log in
-        </Button>
-      </VStack>
-    </form >
+    <FullScreenSection
+      isDarkBackground
+      spacing={8}
+      w="100%"
+    >
+      <form onSubmit={formik.handleSubmit}>
+        <VStack spacing={4}>
+          <FormControl
+            isInvalid={formik.errors.username && formik.touched.username}
+          >
+            <FormLabel htmlFor="username">Username</FormLabel>
+            <Input
+              id="username"
+              name="username"
+              type="email"
+              value={formik.values.username}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
+          </FormControl>
+          <FormControl
+            isInvalid={formik.errors.password && formik.touched.password}
+          >
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
+          </FormControl>
+          <Button
+            type="submit"
+            colorScheme="blue"
+            width="full"
+            isLoading={isLoading}
+          >
+            Log in
+          </Button>
+        </VStack>
+      </form >
+    </FullScreenSection>
   );
 }

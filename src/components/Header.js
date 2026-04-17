@@ -113,7 +113,12 @@ const Header = () => {
           </nav>
           {isHome && (
             <nav>
-              <HStack spacing={[2, 5, 5]} fontSize={[12, 16, 16]}>
+              <HStack
+                spacing={[2, 5, 5]}
+                fontSize={[11, 15, 15]}
+                fontFamily="mono"
+                fontWeight={300}
+              >
                 <a href="" onClick={handleClick("projects")}>Projects</a>
                 <a href="" onClick={handleClick("contactme")}>Contact me</a>
                 <a href="" onClick={handleClick("products")}>Products</a>
@@ -122,7 +127,12 @@ const Header = () => {
           )}
           {!isHome && (
             <nav>
-              <HStack spacing={[2, 5, 5]} fontSize={[12, 16, 16]}>
+              <HStack
+                spacing={[2, 5, 5]}
+                fontSize={[11, 15, 15]}
+                fontFamily="mono"
+                fontWeight={300}
+              >
                 <Link to="/">Home</Link>
               </HStack>
             </nav>

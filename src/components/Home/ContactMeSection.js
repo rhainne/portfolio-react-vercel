@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import {
   Box,
+  Text,
+  Link,
   Button,
   FormControl,
   FormErrorMessage,
@@ -73,9 +75,29 @@ const LandingSection = () => {
     `}
     >
       <VStack minW="480px" w="100%" maxW="1024px" p={32}>
-        <Heading as="h1" id="contactme-section">
+        <Heading as="h1" id="contactme-section" mb={6}>
           Contact me
         </Heading>
+        <Text fontSize="sm" textAlign="center">
+          Dummy contact form to illustrate form validation with {' '}
+          <Link
+            href="https://formik.org/"
+            isExternal
+            color="blue.400"
+            fontWeight="semibold"
+          >
+            Formik
+          </Link> and {' '}
+          <Link
+            href="https://github.com/jquense/yup"
+            isExternal
+            color="blue.400"
+            fontWeight="semibold"
+          >
+            Yup
+          </Link>, custom hooks for handling form submission and global alert context for displaying feedback messages.{' '}
+          This form does not submit data anywhere and give 50% success/error feedback at random.
+        </Text>
         <Box
           p={6}
           rounded="md"

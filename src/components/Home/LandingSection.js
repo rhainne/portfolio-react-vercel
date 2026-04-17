@@ -1,20 +1,19 @@
-import { Avatar, Heading, VStack } from "@chakra-ui/react";
+import { Avatar, Center, Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
 import profileImageSrc from "../../images/profile_pic.jpg";
 
-const greeting = "Hello, I am Adri!";
-const bio1 = "A fullstack developer with";
-const bio2 = "a strong focus on backend";
+const greeting = "Hello, I'm Adri!";
+const bio1 = "A backend-focused fullstack developer with a background in .NET, JavaScript, and some other languages \
+and a growing focus on modern web technologies. I enjoy designing robust systems, improving code quality, \
+and continuously learning better ways to build software.";
 
-// Implement the UI for the LandingSection component according to the instructions.
-// Use a combination of Avatar, Heading and VStack components.
 const LandingSection = () => (
   <FullScreenSection
     justifyContent="center"
     alignItems="center"
     isDarkBackground
     color="gray.200"
-    bg="#0f172a" // the dark base color
+    bg="#0f172a"
     backgroundImage={`
       repeating-linear-gradient(
         45deg,
@@ -35,11 +34,18 @@ const LandingSection = () => (
   >
     <VStack>
       <Avatar name="adri" size="2xl" src={profileImageSrc} />
-      <Heading size="sm" pb={10}>
+      <Heading size="sm" pb={10} fontFamily="mono">
         {greeting}
       </Heading>
-      <Heading>{bio1}</Heading>
-      <Heading>{bio2}</Heading>
+      <Heading
+        size={"sm"}
+        textAlign={"center"}
+        maxW={"700px"}
+        fontFamily="mono"
+        fontWeight={400}
+      >
+        {bio1}
+      </Heading>
     </VStack>
   </FullScreenSection>
 );

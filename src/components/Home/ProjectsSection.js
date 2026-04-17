@@ -1,7 +1,8 @@
 import React from "react";
 import FullScreenSection from "../FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Text, Heading, VStack } from "@chakra-ui/react";
 import Card from "./Card";
+
 
 const imageUrl1 = "https://picsum.photos/4193/2785?random=1";
 const imageUrl2 = "https://picsum.photos/4193/2785?random=2";
@@ -46,6 +47,9 @@ const ProjectsSection = () => {
       <Heading as="h1" id="projects-section">
         Featured Projects
       </Heading>
+      <Text fontSize="sm" textAlign="center">
+        Dummy examples to display a responsive grid layout and card components loaded from remotely randomly retrieved images. The projects are not real.
+      </Text>
       <Box
         display="grid"
         gridTemplateColumns={{

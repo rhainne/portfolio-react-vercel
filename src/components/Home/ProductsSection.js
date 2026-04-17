@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, VStack, Heading } from "@chakra-ui/react";
+import { Button, Text, VStack, Heading } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
 import { useAlertContext } from "../../context/alertContext";
 import LinkedButton from "../LinkedButton";
@@ -14,7 +14,7 @@ const ProductsSection = () => {
       spacing={8}
       minHeight="50vh"
     >
-      <VStack minW="480px" w="100%" maxW="1024px" p={32}>
+      <VStack minW="480px" w="100%" maxW="1024px" p={32} spacing={12}>
         <Heading as="h1" id="products-section">
           Products CRUD
         </Heading>
