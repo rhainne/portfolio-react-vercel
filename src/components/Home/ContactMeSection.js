@@ -13,9 +13,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import * as Yup from "yup";
-import FullScreenSection from "./FullScreenSection";
-import useSubmit from "../hooks/useSubmit";
-import { useAlertContext } from "../context/alertContext";
+import FullScreenSection from "../FullScreenSection";
+import useSubmit from "../../hooks/useSubmit";
+import { useAlertContext } from "../../context/alertContext";
 
 const LandingSection = () => {
   const { isLoading, response, submit } = useSubmit();
@@ -41,7 +41,6 @@ const LandingSection = () => {
 
   useEffect(() => {
     if (response) {
-      console.log("Response received:", response);
       onOpen(response.type, response.message);
 
       if (response.type === "success") formik.resetForm();

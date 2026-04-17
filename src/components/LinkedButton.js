@@ -7,7 +7,7 @@ import { useAlertContext } from "../context/alertContext";
 const LinkedButton = ({ path, text }) => {
   return (
     <Link to={path}>
-      <Button colorScheme="teal" size="lg">
+      <Button colorScheme="blue" size="lg">
         {text}
       </Button>
     </Link>

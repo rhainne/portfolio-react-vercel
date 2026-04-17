@@ -1,6 +1,6 @@
 import { Avatar, Heading, VStack } from "@chakra-ui/react";
-import FullScreenSection from "./FullScreenSection";
-import profileImageSrc from "../images/profile_pic.jpg";
+import FullScreenSection from "../FullScreenSection";
+import profileImageSrc from "../../images/profile_pic.jpg";
 
 const greeting = "Hello, I am Adri!";
 const bio1 = "A fullstack developer with";

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, VStack, Heading } from "@chakra-ui/react";
-import FullScreenSection from "./FullScreenSection";
-import { useAlertContext } from "../context/alertContext";
-import LinkedButton from "./LinkedButton";
+import FullScreenSection from "../FullScreenSection";
+import { useAlertContext } from "../../context/alertContext";
+import LinkedButton from "../LinkedButton";
 
 const ProductsSection = () => {
   return (

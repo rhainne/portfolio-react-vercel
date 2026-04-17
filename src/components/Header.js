@@ -106,7 +106,7 @@ const Header = () => {
             <HStack spacing={[3, 4, 4]}>
               {socials.map((item) => (
                 <a key={`icon-link-${item.id}`} href={item.url} target="_blank">
-                  <FontAwesomeIcon icon={item.icon} size={["lg", "xl", "xl"]} color="gainsboro" />
+                  <FontAwesomeIcon icon={item.icon} size={"lg"} color="gainsboro" />
                 </a>
               ))}
             </HStack>

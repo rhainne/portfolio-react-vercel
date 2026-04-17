@@ -5,10 +5,11 @@ import Home from './components/Home/Home';
 import LinkedButton from './components/LinkedButton';
 import ProductsHome from './components/Products/ProductsHome';
 import Footer from "./components/Footer";
-import Alert from "./components/Alert";
+import Alert from "./components/Home/Alert";
 import { AlertProvider } from "./context/alertContext";
 import theme from "./theme/theme";
 import { ChakraProvider } from "@chakra-ui/react";
+import { AuthProvider } from "../src/components/auth/AuthContext";
 
 function App() {
   return (
@@ -17,8 +18,17 @@ function App() {
         <main>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<ProductsHome />} />
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/products"
+              element={
+                <AuthProvider>
+                  <ProductsHome />
+                </AuthProvider>}
+            />
           </Routes>
           <Footer />
           <Alert />

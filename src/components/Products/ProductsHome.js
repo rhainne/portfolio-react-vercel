@@ -1,20 +1,12 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Select,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
+import { Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
-import { useAlertContext } from "../../context/alertContext";
+import { useAuth } from "../auth/AuthContext";
+import { LoginPage } from "./LoginPage";
+import ProductsCRUD from "./ProductsCRUD";
 
 const ProductsHome = () => {
+  const { isAuthenticated } = useAuth();
   return (
     <FullScreenSection
       isDarkBackground
@@ -41,12 +33,17 @@ const ProductsHome = () => {
     `}
     >
       <VStack minW="480px" w="100%" maxW="1024px" p={32}>
-        <Heading as="h1" id="product-crud-section">
-          Section under construction
+        <Heading as="h2" size={"lg"} mb={8} id="product-crud-section">
+          {!isAuthenticated
+            ? "Log in to access the products CRUD"
+            : "You are authenticated. Page under construction"
+          }
         </Heading>
-        {/* <Button colorScheme="teal" size="lg" onClick={() => alert("Button clicked!")}>
-          Products
-        </Button> */}
+        {
+          !isAuthenticated
+            ? <LoginPage />
+            : <ProductsCRUD />
+        }
       </VStack>
     </FullScreenSection>
   );
