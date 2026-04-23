@@ -16,11 +16,15 @@ import {
 } from "@chakra-ui/react";
 
 import { useAlertContext } from "../../context/alertContext";
-import useSubmitDeleteProduct from "../../hooks/useSubmitDeleteProduct";
+import useApiSubmit from "../../hooks/useApiSubmit";
 
 
 function DeleteProduct() {
-  const { isLoading, response, submit } = useSubmitDeleteProduct();
+  const { isLoading, response, submit } = useApiSubmit({
+    action: (api, data) => api.delete(`/products/${data.id}`),
+    successMessage: `Product deleted successfully!`,
+    errorMessage: "Failed to delete product"
+  });
   const { onOpen } = useAlertContext();
 
   const formik = useFormik({

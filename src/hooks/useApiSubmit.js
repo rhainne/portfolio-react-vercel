@@ -3,7 +3,7 @@ import { useApi } from "../utils/useApi";
 import { ApiError } from "../utils/apiClient";
 import { useAuth } from "../components/auth/AuthContext";
 
-const useSubmitDeleteProduct = () => {
+const useApiSubmit = ({ action, successMessage, errorMessage }) => {
   const api = useApi();
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState(null);
@@ -12,17 +12,18 @@ const useSubmitDeleteProduct = () => {
     setIsLoading(true);
 
     try {
-      const res = await api.delete(`/products/${data.id}`); // Path param for product ID
+      await action(api, data);
 
       setResponse({
         type: 'success',
-        message: `Product deleted successfully!`,
+        message: successMessage,
       });
     }
     catch (err) {
       setResponse({
         type: 'error',
-        message: `Product deletion failed (${err.status}): ${err.message}`,
+        message: `${errorMessage} (${err.status}): ${err.message}` ||
+          `Operation failed (${err.status}): ${err.message}`,
       });
     } finally {
       setIsLoading(false);
@@ -32,4 +33,4 @@ const useSubmitDeleteProduct = () => {
   return { isLoading, response, submit };
 }
 
-export default useSubmitDeleteProduct;
+export default useApiSubmit;

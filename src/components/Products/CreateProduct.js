@@ -20,11 +20,15 @@ import {
 
 import { TagInput } from "../Forms/TagInput";
 import { useAlertContext } from "../../context/alertContext";
-import useSubmitCreateProduct from "../../hooks/useSubmitCreateProduct";
+import useApiSubmit from "../../hooks/useApiSubmit";
 
 
 function CreateProduct() {
-  const { isLoading, response, submit } = useSubmitCreateProduct();
+  const { isLoading, response, submit } = useApiSubmit({
+    action: (api, data) => api.post("/products", data),
+    successMessage: `Product created successfully!`,
+    errorMessage: "Failed to create product"
+  });
   const { onOpen } = useAlertContext();
 
   const formik = useFormik({
