@@ -21,15 +21,41 @@ function Alert() {
       isOpen={isOpen}
       leastDestructiveRef={cancelRef}
       onClose={onClose}
+      isCentered
     >
-      <AlertDialogOverlay>
-        <AlertDialogContent py={4} backgroundColor={isSuccess ? '#81C784' : '#FF8A65'}>
-          <AlertDialogHeader fontSize="lg" fontWeight="bold">
-            {isSuccess ? 'All good!' : 'Oops!'}
-          </AlertDialogHeader>
-          <AlertDialogBody>{message}</AlertDialogBody>
-        </AlertDialogContent>
-      </AlertDialogOverlay>
+      <AlertDialogOverlay backdropFilter="blur(2px)" />
+      <AlertDialogContent
+        py={4}
+        backgroundColor="#0f172a"
+        border="1px solid"
+        borderColor={isSuccess ? "green.500" : "red.500"}
+        borderRadius="lg"
+        boxShadow={`0 0 24px ${isSuccess ? "rgba(234,179,8,0.15)" : "rgba(248,113,113,0.15)"}`}
+      >
+        <AlertDialogHeader
+          fontSize="md"
+          fontWeight="600"
+          color={isSuccess
+            ? "green.400"
+            : "red.400"
+          }
+          display="flex"
+          alignItems="center"
+          gap={2}
+          pb={1}
+        >
+          {isSuccess
+            ? "✓  All good!"
+            : "✕  Oops!"
+          }
+        </AlertDialogHeader>
+        <AlertDialogBody
+          fontSize="sm"
+          color="gray.300"
+        >
+          {message}
+        </AlertDialogBody>
+      </AlertDialogContent>
     </AlertDialog>
   );
 }
