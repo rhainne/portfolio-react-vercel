@@ -7,7 +7,12 @@ import DeleteProduct from "./DeleteProduct";
 
 function ProductsCRUD() {
   return (
-    <HStack minW="480px" w="100%" alignItems={"flex-start"}>
+    <HStack
+      minW="480px"
+      w="100%"
+      alignItems={"flex-start"}
+      spacing={8}
+    >
       <CreateProduct />
       <DeleteProduct />
     </HStack>

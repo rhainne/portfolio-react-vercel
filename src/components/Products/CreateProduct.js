@@ -65,7 +65,7 @@ function CreateProduct() {
         Create Product
       </Heading>
       <Box
-        p={6}
+        p={2}
         rounded="md"
         w="100%"
         minW={{ base: "280px", sm: "340px", md: "400px" }}

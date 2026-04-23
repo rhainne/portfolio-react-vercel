@@ -116,7 +116,6 @@ const Header = () => {
               <HStack
                 spacing={[2, 5, 5]}
                 fontSize={[11, 15, 15]}
-                fontFamily="mono"
                 fontWeight={300}
               >
                 <a href="" onClick={handleClick("projects")}>Projects</a>
@@ -130,7 +129,6 @@ const Header = () => {
               <HStack
                 spacing={[2, 5, 5]}
                 fontSize={[11, 15, 15]}
-                fontFamily="mono"
                 fontWeight={300}
               >
                 <Link to="/">Home</Link>

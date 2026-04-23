@@ -34,14 +34,13 @@ const LandingSection = () => (
   >
     <VStack>
       <Avatar name="adri" size="2xl" src={profileImageSrc} />
-      <Heading size="sm" pb={10} fontFamily="mono">
+      <Heading size="sm" pb={10}>
         {greeting}
       </Heading>
       <Heading
         size={"sm"}
         textAlign={"center"}
         maxW={"700px"}
-        fontFamily="mono"
         fontWeight={400}
       >
         {bio1}
