@@ -1,5 +1,13 @@
 const BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3000/api";
 
+export class ApiError extends Error {
+  constructor(status, body) {
+    super(body?.message ?? JSON.stringify(body));
+    this.status = status;
+    this.body = body;
+  }
+}
+
 export function createApiClient(token, onUnauthorized) {
   const request = async (path, options = {}) => {
     const res = await fetch(`${BASE_URL}${path}`, {
@@ -12,12 +20,16 @@ export function createApiClient(token, onUnauthorized) {
     });
 
     if (res.status === 401) {
-      onUnauthorized(); // triggers logout()
-      throw new Error("Session expired");
+      onUnauthorized();
+      throw new ApiError(401, { message: "Unauthorized: Please log in again." });
     }
 
-    if (!res.ok) throw new Error(`API error: ${res.status}`);
-    return res.json();
+    const body = await res.json();
+
+    if (!res.ok)
+      throw new ApiError(res.status, body);
+
+    return body;
   };
 
   return {

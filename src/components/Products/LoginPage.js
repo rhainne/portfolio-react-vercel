@@ -27,7 +27,7 @@ export function LoginPage() {
       username: "",
       password: "",
     },
-    onSubmit: (values) => submit("url", values),
+    onSubmit: (values) => submit(values),
     validationSchema: Yup.object({
       username: Yup.string().label("Username").email().required(),
       password: Yup.string().label("Password").required(),

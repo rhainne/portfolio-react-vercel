@@ -57,10 +57,7 @@ const ProductsHome = () => {
           </Text>
         )}
         <Heading as="h2" size={"lg"} mb={8} id="product-crud-section">
-          {!isAuthenticated
-            ? "Log in to access the products CRUD"
-            : "You are authenticated. Page under construction"
-          }
+          {!isAuthenticated ?? "Log in to access the products CRUD"}
         </Heading>
         {
           !isAuthenticated

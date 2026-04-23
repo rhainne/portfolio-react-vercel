@@ -8,7 +8,7 @@ const useSubmitLogin = () => {
   const [response, setResponse] = useState(null);
   const { login } = useAuth();
 
-  const submit = async (url, data) => {
+  const submit = async (data) => {
     const { username, password } = data;
     setLoading(true);
 
