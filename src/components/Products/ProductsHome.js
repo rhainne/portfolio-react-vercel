@@ -1,12 +1,12 @@
 import React from "react";
-import { Heading, Text, Link, VStack } from "@chakra-ui/react";
+import { Button, Heading, Text, Link, VStack } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
 import { useAuth } from "../auth/AuthContext";
 import { LoginPage } from "./LoginPage";
 import ProductsCRUD from "./ProductsCRUD";
 
 const ProductsHome = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   return (
     <FullScreenSection
       isDarkBackground
@@ -32,7 +32,7 @@ const ProductsHome = () => {
       )
     `}
     >
-      <VStack minW="480px" w="100%" maxW="1024px" p={32} spacing={8}>
+      <VStack minW="480px" w="100%" p={32} spacing={8}>
         {!isAuthenticated && (
           <Text textAlign="center" fontSize="sm">
             Login to access the products CRUD. The underlying Rest API is made with{' '}
@@ -62,7 +62,22 @@ const ProductsHome = () => {
         {
           !isAuthenticated
             ? <LoginPage />
-            : <ProductsCRUD />
+            :
+            <>
+              <ProductsCRUD /><Button
+                position="fixed"
+                bottom="3"
+                right="3"
+                rounded="md"
+                boxShadow="md"
+                size="md"
+                colorScheme="blue"
+                aria-label="logout"
+                onClick={logout}
+              >
+                Logout
+              </Button>
+            </>
         }
       </VStack>
     </FullScreenSection >
