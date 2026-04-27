@@ -64,7 +64,8 @@ const ProductsHome = () => {
             ? <LoginPage />
             :
             <>
-              <ProductsCRUD /><Button
+              <ProductsCRUD />
+              <Button
                 position="fixed"
                 bottom="3"
                 right="3"

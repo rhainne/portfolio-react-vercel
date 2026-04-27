@@ -12,11 +12,12 @@ const useApiSubmit = ({ action, successMessage, errorMessage }) => {
     setIsLoading(true);
 
     try {
-      await action(api, data);
+      const res = await action(api, data);
 
       setResponse({
         type: 'success',
         message: successMessage,
+        response: res,
       });
     }
     catch (err) {
@@ -24,6 +25,7 @@ const useApiSubmit = ({ action, successMessage, errorMessage }) => {
         type: 'error',
         message: `${errorMessage} (${err.status}): ${err.message}` ||
           `Operation failed (${err.status}): ${err.message}`,
+        response: err.body,
       });
     } finally {
       setIsLoading(false);

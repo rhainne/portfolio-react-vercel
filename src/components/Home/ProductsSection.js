@@ -18,7 +18,10 @@ const ProductsSection = () => {
         <Heading as="h1" id="products-section">
           Products CRUD
         </Heading>
-        <LinkedButton path="/products" text="Go to Products CRUD section" />
+        <LinkedButton
+          path="/products"
+          text="Go to Products CRUD section"
+        />
       </VStack>
     </FullScreenSection>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -23,7 +23,7 @@ function DeleteProduct() {
   const { isLoading, response, submit } = useApiSubmit({
     action: (api, data) => api.delete(`/products/${data.id}`),
     successMessage: `Product deleted successfully!`,
-    errorMessage: "Failed to delete product"
+    errorMessage: `Failed to delete product`,
   });
   const { onOpen } = useAlertContext();
 
