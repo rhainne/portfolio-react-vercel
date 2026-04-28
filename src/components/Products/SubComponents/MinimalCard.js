@@ -4,6 +4,7 @@ export function MinimalCard({ product, onClick }) {
   return (
     <Flex
       justify="space-between"
+      gap={2}
       align="center"
       p={4}
       m={1}
@@ -15,6 +16,7 @@ export function MinimalCard({ product, onClick }) {
       _hover={{ borderColor: "whiteAlpha.400" }}
       transition="border-color .15s"
       onClick={onClick}
+
     >
       <Text fontWeight="500" fontSize="sm">
         {product.title}

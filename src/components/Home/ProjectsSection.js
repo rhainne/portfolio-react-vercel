@@ -44,7 +44,7 @@ const ProjectsSection = () => {
       p={8}
       spacing={8}
     >
-      <Heading as="h1" id="projects-section">
+      <Heading as="h1" id="projects-section" textAlign={"center"}>
         Featured Projects
       </Heading>
       <Text fontSize="sm" textAlign="center">

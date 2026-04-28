@@ -32,7 +32,10 @@ const ProductsHome = () => {
       )
     `}
     >
-      <VStack minW="480px" w="100%" p={32} spacing={8}>
+      <VStack w="100%" maxW="860px" mx="auto"
+        px={{ base: 0, md: 4 }}
+        py={{ base: 16, md: 20 }} spacing={4}
+      >
         {!isAuthenticated && (
           <Text textAlign="center" fontSize="sm">
             Login to access the products CRUD. The underlying Rest API is made with{' '}

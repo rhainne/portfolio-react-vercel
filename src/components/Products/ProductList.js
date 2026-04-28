@@ -36,7 +36,10 @@ function ProductList() {
 
 
   return (
-    <VStack minW="480px" w="100%" maxW="1024px">
+    <VStack w="100%" maxW="860px" mx="auto"
+      px={{ base: 0, md: 4 }}
+      py={{ base: 16, md: 20 }} spacing={4}
+    >
       <Heading as="h1" id="delete-product-section" mb={6}>
         Product List
       </Heading>
@@ -44,9 +47,8 @@ function ProductList() {
         p={2}
         rounded="md"
         w="100%"
-        minW={{ base: "280px", sm: "340px", md: "400px" }}
         overflowY="auto"
-        maxH={500}
+        maxH={380}
       >
         {!products.length ?
           <>
@@ -69,7 +71,8 @@ function ProductList() {
           ))
         }
       </Box>
-      {selected &&
+      {
+        selected &&
         <ProductDetails
           product={selected}
         />

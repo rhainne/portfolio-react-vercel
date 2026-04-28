@@ -5,6 +5,7 @@ import {
 export function ProductDetails({ product }) {
   return (
     <Box
+      m={2}
       mt={5}
       p={5}
       bg="whiteAlpha.50"

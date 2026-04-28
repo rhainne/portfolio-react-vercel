@@ -14,7 +14,10 @@ const ProductsSection = () => {
       spacing={8}
       minHeight="50vh"
     >
-      <VStack minW="480px" w="100%" maxW="1024px" p={32} spacing={12}>
+      <VStack w="100%" maxW="860px" mx="auto"
+        px={{ base: 0, md: 4 }}
+        py={{ base: 16, md: 20 }} spacing={4}
+      >
         <Heading as="h1" id="products-section">
           Products CRUD
         </Heading>
