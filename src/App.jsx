@@ -9,7 +9,7 @@ import Alert from "./components/Home/Alert";
 import { AlertProvider } from "./context/alertContext";
 import theme from "./theme/theme";
 import { ChakraProvider } from "@chakra-ui/react";
-import { AuthProvider } from "../src/components/auth/AuthContext";
+import { AuthProvider } from "./components/auth/AuthContext";
 
 function App() {
   return (
