@@ -16,11 +16,13 @@ import * as Yup from "yup";
 
 import FullScreenSection from "../FullScreenSection";
 import useSubmitLogin from "../../hooks/useSubmitLogin";
+import { useAlertContext } from "../../context/alertContext";
 import { useApi } from "../../utils/useApi";
 
 export function LoginPage() {
   const { isLoading, response, submit } = useSubmitLogin();
   const api = useApi();
+  const { onOpen } = useAlertContext();
 
   const formik = useFormik({
     initialValues: {
@@ -36,6 +38,8 @@ export function LoginPage() {
 
   useEffect(() => {
     if (response) {
+      onOpen(response.type, response.message);
+
       if (response.type === "success")
         formik.resetForm();
     }

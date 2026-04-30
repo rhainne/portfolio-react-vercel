@@ -16,8 +16,6 @@ export function createApiClient(token, onUnauthorized) {
       ? `${BASE_URL}${path}?${new URLSearchParams(params)}`
       : `${BASE_URL}${path}`;
 
-    console.log(`Making API request to ${url} with options:`, restOptions);
-
     const res = await fetch(url, {
       ...options,
       headers: {

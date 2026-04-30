@@ -55,7 +55,8 @@ function CreateProduct() {
     if (response) {
       onOpen(response.type, response.message);
 
-      if (response.type === "success") formik.resetForm();
+      if (response.type === "success")
+        formik.resetForm();
     }
   }, [response]);
 

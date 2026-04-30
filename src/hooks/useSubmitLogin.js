@@ -20,10 +20,12 @@ const useSubmitLogin = () => {
         body: JSON.stringify({ email: username, password }),
       });
 
-      if (!res.ok)
-        throw new Error("Error: ", res);
+      const data = await res.json();
 
-      const { token } = await res.json();
+      if (!res.ok)
+        throw new Error(`${data.message}`);
+
+      const { token } = data;
       login(token); // ← stores in state + localStorage
       setResponse({
         type: 'success',
