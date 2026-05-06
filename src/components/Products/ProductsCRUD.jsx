@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Heading,
   Stack,
@@ -10,9 +11,11 @@ import ProductList from "./ProductList";
 import FullScreenSection from "../FullScreenSection";
 
 function ProductsCRUD() {
+  const [selectedId, setSelectedId] = useState("");  // ← shared state
+
   return (
     <>
-      <ProductList />
+      <ProductList onProductSelect={(id) => setSelectedId(id)} />
       <Stack
         direction={{ base: "column", md: "row" }}
         w="100%" maxW="1024px" mx="auto"
@@ -21,7 +24,7 @@ function ProductsCRUD() {
       >
         <CreateProduct />
         {/* <VStack spacing={8} w="100%"> */}
-        <DeleteProduct />
+        <DeleteProduct selectedId={selectedId} />
         {/* </VStack> */}
       </Stack>
     </>

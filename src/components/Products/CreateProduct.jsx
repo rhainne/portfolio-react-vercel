@@ -63,7 +63,7 @@ function CreateProduct() {
   return (
     <VStack w="100%" maxW="1024px" mx="auto"
       px={{ base: 0, md: 4 }}
-      py={{ base: 16, md: 20 }} spacing={4}
+      py={{ base: 4, md: 8 }} spacing={4}
     >
       <Heading as="h1" id="create-product-section" mb={6}>
         Create Product

@@ -7,6 +7,7 @@ import ProductsCRUD from "./ProductsCRUD";
 
 const ProductsHome = () => {
   const { isAuthenticated, logout } = useAuth();
+
   return (
     <FullScreenSection
       isDarkBackground

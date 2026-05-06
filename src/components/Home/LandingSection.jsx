@@ -7,6 +7,11 @@ const bio1 = "A backend-focused fullstack developer with a background in .NET, J
 and a growing focus on modern web technologies. I enjoy designing robust systems, improving code quality, \
 and continuously learning better ways to build software.";
 
+const aboutThisSite = "This site and its surroundings is where I practice what I learn. It's a React frontend talking to \
+real backends — login, token auth, product management and more — built as a way to get hands-on with things I'm \
+studying rather than just reading about them. Just a place to write real code and see it working. \
+Still a work in progress — just like me"
+
 const LandingSection = () => (
   <FullScreenSection
     justifyContent="center"
@@ -42,8 +47,17 @@ const LandingSection = () => (
         textAlign={"center"}
         maxW={"700px"}
         fontWeight={400}
+        pb={10}
       >
         {bio1}
+      </Heading>
+      <Heading
+        size={"sm"}
+        textAlign={"center"}
+        maxW={"700px"}
+        fontWeight={400}
+      >
+        {aboutThisSite}
       </Heading>
     </VStack>
   </FullScreenSection>

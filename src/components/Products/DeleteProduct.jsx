@@ -19,7 +19,7 @@ import { useAlertContext } from "../../context/alertContext";
 import useApiSubmit from "../../hooks/useApiSubmit";
 
 
-function DeleteProduct() {
+function DeleteProduct({ selectedId }) {
   const { isLoading, response, submit } = useApiSubmit({
     action: (api, data) => api.delete(`/products/${data.id}`),
     successMessage: `Product deleted successfully!`,
@@ -45,10 +45,16 @@ function DeleteProduct() {
     }
   }, [response]);
 
+  useEffect(() => {
+    if (selectedId) {
+      formik.setFieldValue("id", selectedId);
+    }
+  }, [selectedId]);
+
   return (
     <VStack w="100%" maxW="1024px" mx="auto"
       px={{ base: 0, md: 4 }}
-      py={{ base: 16, md: 20 }} spacing={4}
+      py={{ base: 4, md: 8 }} spacing={4}
     >
       <Heading as="h1" id="delete-product-section" mb={6}>
         Delete Product

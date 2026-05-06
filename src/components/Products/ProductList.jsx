@@ -18,7 +18,7 @@ import { MinimalCard } from "./SubComponents/MinimalCard";
 import { ProductDetails } from "./SubComponents/ProductDetails";
 
 
-function ProductList() {
+function ProductList({ onProductSelect }) {
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
 
@@ -33,7 +33,10 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   const [selected, setSelected] = useState(null);
 
-  const onSelect = (product) => { setSelected(product) };
+  const onSelect = (product) => {
+    setSelected(product);
+    onProductSelect(product.id);
+  };
 
   useEffect(() => {
     if (response && response.type === "success")
@@ -54,17 +57,6 @@ function ProductList() {
       <Heading as="h1" id="delete-product-section" mb={6}>
         Product List
       </Heading>
-      {/* <Button
-        colorScheme="blue"
-        width="full"
-        isLoading={isLoading}
-        onClick={() => submit()}
-      >
-        {!products.length ? "Load" : "Reload"}
-      </Button> */}
-
-
-
       <HStack w="100%" justify="center" spacing={8}>
         <FormControl w="140px">
           <FormLabel fontSize="xs" color="gray.400" mb={1} ml={1}>Nº of products</FormLabel>
@@ -101,9 +93,6 @@ function ProductList() {
           </NumberInput>
         </FormControl>
       </HStack>
-
-
-
       <Box
         p={2}
         rounded="md"
@@ -116,6 +105,7 @@ function ProductList() {
             key={product.id}
             product={product}
             onClick={() => onSelect(product)}
+            isSelected={selected?.id === product.id}
           />
         ))}
       </Box>
