@@ -23,7 +23,7 @@ function App() {
               element={<Home />}
             />
             <Route
-              path="/products"
+              path="/rest"
               element={
                 <AuthProvider>
                   <ProductsHome />

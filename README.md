@@ -6,11 +6,10 @@ A personal project to showcase my skills across modern web techs, with a focus o
 Interactive sections with animations, responsive design using Chakra UI, and social media integration. Some features are dummy and have no real actions behind them. They are there to demonstrate specific frontend patterns.
 
 **Next steps:**
-- [x] **REST API Integration**: CRUD forms connected to an existing REST backend
-  - [x] Enable limit and offset in products retrieval
-  - [x] Trasport product IDs to delete form on product click in the list
 - [ ] **GraphQL Integration**: CRUD forms querying an existing GraphQL API
+  - [ ] Enable GraphQL route
 - [ ] **gRPC Integration**: CRUD operations using gRPC API with an existing gRPC backend
+  - [ ] Enable gRPC route
 - [ ] **Performance**: Implement React Query for data fetching/caching
 - [ ] **Testing**: Add Vitest testing
   - [x] unit
