@@ -3,6 +3,8 @@ import { Button, Text, VStack, Heading, Link } from "@chakra-ui/react";
 import FullScreenSection from "../FullScreenSection";
 import { useAlertContext } from "../../context/alertContext";
 import LinkedButton from "../LinkedButton";
+import GraphQLExplainer from "../Products/GraphQLComponents/GraphQLExplainer";
+import RestExplainer from "../Products/RESTComponents/RestExplainer";
 
 const ProductsSection = () => {
   return (
@@ -46,20 +48,12 @@ const ProductsSection = () => {
             gRPC
           </Link> APIs I've developed before.
         </Text>
-        <LinkedButton
-          colorScheme="blue"
-          path="/rest"
-          text="REST"
-        />
-        <LinkedButton
-          colorScheme="pink"
-          path="/graphql"
-          text="GraphQL"
-        />
+        <RestExplainer />
+        <GraphQLExplainer />
         <LinkedButton
           colorScheme="teal"
           path="/grpc"
-          text="gRPC"
+          text="gRPC <to be implemented>"
         />
       </VStack>
     </FullScreenSection>
