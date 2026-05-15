@@ -63,6 +63,9 @@ function RestExplainer() {
         fontFamily="mono"
         color="gray.700"
         lineHeight="1.7"
+        overflow="hidden"
+        // whiteSpace="pre"
+        textOverflow="ellipsis"
       >
         <Text as="span" color="blue.300">GET</Text>
         {` /api/products?limit=10&offset=0\n`}
@@ -70,15 +73,18 @@ function RestExplainer() {
         {` Bearer <token>`}
       </Box>
 
-      <Box textAlign="center">
+      <Box>
         <Button
           as="a"
           href="/rest"
           mt={6}
           p={3}
+          w={"100%"}
           colorScheme="blue"
         >
-          Try the REST playground
+          <Text isTruncated>
+            Try the REST playground
+          </Text>
         </Button>
       </Box>
     </Box>

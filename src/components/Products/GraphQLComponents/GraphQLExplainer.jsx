@@ -70,7 +70,7 @@ function GraphQLExplainer(children) {
         {` {\n  servers {\n    id\n    status\n    uptime\n  }\n}`}
       </Box>
 
-      <Box textAlign="center">
+      <Box>
         <Button
           as="a"
           mt={6}
@@ -79,8 +79,11 @@ function GraphQLExplainer(children) {
           href="https://graphql-api-j5jl.onrender.com/altair/"
           target="_blank"
           rel="noopener noreferrer"
+          w={"100%"}
         >
-          Try it live in Altair playground
+          <Text isTruncated>
+            Try it live in Altair playground
+          </Text>
         </Button>
       </Box>
     </Box>

@@ -12,7 +12,7 @@ const ProductsSection = () => {
       backgroundColor="gray.200"
       color="blue.800"
       isDarkBackground
-      p={8}
+      p={2}
       spacing={8}
       minHeight="50vh"
     >
