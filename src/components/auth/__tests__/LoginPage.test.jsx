@@ -1,7 +1,7 @@
 // src/components/auth/__tests__/LoginPage.test.jsx
 import { screen, waitFor, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { renderWithProviders } from "../../../test/helpers";
+import { renderWithProviders } from "../../../test-config/helpers";
 import { LoginPage } from "../../Products/LoginPage";
 
 // mock the API so no real HTTP calls are made

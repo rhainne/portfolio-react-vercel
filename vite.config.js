@@ -6,6 +6,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",    // simulates browser DOM
     globals: true,           // no need to import describe/it/expect
-    setupFiles: "./src/test/setup.js",
+    setupFiles: "./src/test-config/setup.js",
+    exclude: ["**/node_modules/**", "**/tests/**"],
   },
 });
