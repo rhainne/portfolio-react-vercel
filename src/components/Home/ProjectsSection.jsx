@@ -41,7 +41,7 @@ const ProjectsSection = () => {
       backgroundColor="gray.200"
       color="blue.800"
       isDarkBackground
-      p={8}
+      p={[4, 8, 8]}
       spacing={8}
     >
       <Heading as="h1" id="projects-section" textAlign={"center"}>

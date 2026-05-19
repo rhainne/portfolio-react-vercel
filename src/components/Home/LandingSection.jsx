@@ -17,6 +17,9 @@ const LandingSection = () => (
     justifyContent="center"
     alignItems="center"
     isDarkBackground
+    px={[3, 4, 8]}
+    pt={[12, 8, 8]}
+    pb={4}
     color="gray.200"
     bg="#0f172a"
     backgroundImage={`
@@ -38,7 +41,11 @@ const LandingSection = () => (
     backgroundSize="cover"
   >
     <VStack>
-      <Avatar name="adri" size="2xl" src={profileImageSrc} />
+      <Avatar
+        name="adri"
+        size="2xl"
+        src={profileImageSrc}
+      />
       <Heading size="sm" pb={10}>
         {greeting}
       </Heading>

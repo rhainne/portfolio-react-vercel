@@ -16,6 +16,8 @@ const ProductsHome = () => {
       // py={16}
       spacing={8}
       w="100%"
+      px={[3, 4, 8]}
+      pt={[2, 4, 4]}
       backgroundImage={`
       repeating-linear-gradient(
         45deg,

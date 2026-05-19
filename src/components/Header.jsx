@@ -96,7 +96,7 @@ const Header = () => {
     >
       <Box color="white" margin="0 auto">
         <HStack
-          pr={16}
+          pr={[4, 8, 16]}
           pl={[4, 8, 8]}
           py={4}
           justifyContent="space-between"
