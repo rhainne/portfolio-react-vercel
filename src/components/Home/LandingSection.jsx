@@ -18,7 +18,7 @@ const LandingSection = () => (
     alignItems="center"
     isDarkBackground
     px={[3, 4, 8]}
-    pt={[12, 8, 8]}
+    pt={[4, 8, 8]}
     pb={4}
     color="gray.200"
     bg="#0f172a"
